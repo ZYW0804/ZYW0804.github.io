@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>泛型与容器类 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="
+泛型的基本概念Java 泛型（generics）是 JDK 5 中引入的一个新特性, 泛型提供了编译时类型安全检测机制，该机制允许程序员在编译时检测到非法的类型。泛型的本质是参数化类型，也就是说所,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">泛型与容器类</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">泛型与容器类</h1>
+        <div class="stuff">
+            <span>五月 01, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <hr>
+<h1 id="泛型的基本概念"><a href="#泛型的基本概念" class="headerlink" title="泛型的基本概念"></a>泛型的基本概念</h1><p>Java 泛型（generics）是 JDK 5 中引入的一个新特性, 泛型提供了编译时类型安全检测机制，该机制允许程序员在编译时检测到非法的类型。<br>泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数。<br>泛型是Java SE 1.5的新特性，泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数。这种参数类型可以用在类、接口和方法的创建中，分别称为泛型类、泛型接口、泛型方法。Java语言引入泛型的好处是安全简单。<br>在Java SE 1.5之前，没有泛型的情况的下，通过对类型Object的引用来实现参数的“任意化”，“任意化”带来的缺点是要做显式的强制类型转换，而这种转换是要求开发者对实际参数类型可以预知的情况下进行的。对于强制类型转换错误的情况，编译器可能不提示错误，在运行的时候才出现异常，这是一个安全隐患。<br>泛型的好处是在编译的时候检查类型安全，并且所有的强制转换都是自动和隐式的，以提高代码的重用率。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class App12_1 &lt;T&gt;&#x2F;&#x2F;简单介绍泛型</span><br><span class="line">&#123;</span><br><span class="line">    private T obj;</span><br><span class="line">    public T getObj()</span><br><span class="line">    &#123;</span><br><span class="line">        return obj;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setObj(T obj)</span><br><span class="line">    &#123;</span><br><span class="line">        this.obj &#x3D; obj;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        App12_1&lt;String&gt;name &#x3D; new App12_1&lt;String&gt;();</span><br><span class="line">        App12_1&lt;Integer&gt;age &#x3D; new App12_1&lt;Integer&gt;();</span><br><span class="line">        name.setObj(&quot;张耀文&quot;);</span><br><span class="line">        age.setObj(19);</span><br><span class="line">        String newName &#x3D; name.getObj();</span><br><span class="line">        int newAge &#x3D; age.getObj();</span><br><span class="line">        System.out.println(&quot;姓名是&quot;+newName);</span><br><span class="line">        System.out.println(&quot;年龄是&quot;+newAge);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>结果为:</strong><br><img src="/photo/5.1_1.png" alt="5.1_1"></p>
+<hr>
+<h1 id="泛型的基本使用"><a href="#泛型的基本使用" class="headerlink" title="泛型的基本使用"></a><strong>泛型的基本使用</strong></h1><p>所有泛型方法声明都有一个类型参数声明部分（由尖括号分隔），该类型参数声明部分在方法返回类型之前（在下面例子中的<E>）。<br>每一个类型参数声明部分包含一个或多个类型参数，参数间用逗号隔开。一个泛型参数，也被称为一个类型变量，是用于指定一个泛型类型名称的标识符。<br>类型参数能被用来声明返回值类型，并且能作为泛型方法得到的实际参数类型的占位符。<br>泛型方法体的声明和其他方法一样。注意类型参数只能代表引用型类型，不能是原始类型（像int,double,char的等）。</p>
+<h2 id="泛型方法应用"><a href="#泛型方法应用" class="headerlink" title="泛型方法应用"></a><strong>泛型方法应用</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> public class App12_2 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Integer[] num &#x3D; &#123;1,2,3,4,5&#125;;</span><br><span class="line">        String[] str &#x3D; &#123;&quot;红&quot;,&quot;橙&quot;,&quot;黄&quot;,&quot;绿&quot;,&quot;青&quot;,&quot;蓝&quot;,&quot;紫&quot;&#125;;</span><br><span class="line">        App12_2.display(num);</span><br><span class="line">        App12_2.display((str));</span><br><span class="line">    &#125;</span><br><span class="line">    public static &lt;E&gt;void display(E[] list)</span><br><span class="line">    &#123;</span><br><span class="line">        for (int i &#x3D; 0; i &lt;list.length ; i++) &#123;</span><br><span class="line">            System.out.print(list[i] + &quot; &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>结果为：</strong><br><img src="/photo/5.1_2.png" alt="5.1_2"></p>
+<h2 id="综合应用"><a href="#综合应用" class="headerlink" title="综合应用"></a><strong>综合应用</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;泛型参数的改变</span><br><span class="line">class GenMet&lt;T&gt;</span><br><span class="line">&#123;</span><br><span class="line">    private T t;</span><br><span class="line">    public T getObj()</span><br><span class="line">    &#123;</span><br><span class="line">        return t;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setObj(T t)</span><br><span class="line">    &#123;</span><br><span class="line">        this.t &#x3D; t;</span><br><span class="line">    &#125;</span><br><span class="line">    public &lt;U&gt;void display(U u)</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(&quot;泛型类的类型参数T:&quot;+t.getClass().getName());</span><br><span class="line">        System.out.println(&quot;泛型方法的类型参数U：&quot;+u.getClass().getName());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">public class App12_3</span><br><span class="line">&#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        GenMet&lt;Integer&gt; gen &#x3D; new GenMet&lt;Integer&gt;();</span><br><span class="line">        gen.setObj(new Integer(5));</span><br><span class="line">        System.out.println(&quot;第一次输出：&quot;);</span><br><span class="line">        gen.display(&quot;我是文本&quot;);</span><br><span class="line">        System.out.println(&quot;第二次输出：&quot;);</span><br><span class="line">        gen.display(new Double(8.0));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>结果为：</strong><br><img src="/photo/5.1_3.png" alt="5.1_3"><br>此例在泛型类中定义泛型方法，然后分别输出泛型类的类型参数和泛型方法的类型参数所属的类，也主要说明类的类<br>型参数与泛型方法的类型参数是不同的。</p>
+<hr>
+<h1 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a><strong>通配符</strong></h1><p>   通配符主要有两个作用：<br>   1.用于创建可重新赋值但不可以修改其内容的泛型对象<br>   2.用在方法的参数中，限制传入不想要的类型参数</p>
+<p>？ 表示不确定的 java 类型<br>T (type) 表示具体的一个java类型<br>K V (key value) 分别代表java键值中的Key Value<br>E (element) 代表Element</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class GType&lt;T&gt;</span><br><span class="line">&#123;</span><br><span class="line">    T obj;</span><br><span class="line">    public void setObj(T obj)</span><br><span class="line">    &#123;</span><br><span class="line">        this.obj &#x3D; obj;</span><br><span class="line">    &#125;</span><br><span class="line">    public T getObj()</span><br><span class="line">    &#123;</span><br><span class="line">        return obj;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void showObj(GType&lt;? extends String&gt; o)</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(&quot;给出的值为:&quot;+o.getObj());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class App12_5</span><br><span class="line">&#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        GType&lt;String &gt; n &#x3D; new GType&lt;String &gt;();</span><br><span class="line">        n.setObj(&quot;张耀文&quot;);</span><br><span class="line">        GType.showObj(n);</span><br><span class="line">        GType&lt;Double&gt; num &#x3D; new GType&lt;Double&gt;();</span><br><span class="line">        num.setObj(25.0);</span><br><span class="line">        System.out.println(&quot;数值类型：&quot;+num.getObj());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>结果为：</strong><br><img src="/photo/5.1_4.png" alt="5.1_4"></p>
+<p>以上为简单泛型内容，容器稍后更新</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="ture">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

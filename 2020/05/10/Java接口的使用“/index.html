@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Java接口的使用 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="
+接口的定义和基本使用  1.接口就是多个类的公共规范。  2.接口是一种引用数据类型，最重要的内容就是其中的:抽象方法。  如何定义一个接口呢？  格式：
+1231  public interfa,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Java接口的使用</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Java接口的使用</h1>
+        <div class="stuff">
+            <span>五月 10, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <hr>
+<h1 id="接口的定义和基本使用"><a href="#接口的定义和基本使用" class="headerlink" title="接口的定义和基本使用"></a>接口的定义和基本使用</h1><p>  1.接口就是多个类的公共规范。<br>  2.接口是一种引用数据类型，最重要的内容就是其中的:抽象方法。<br>  如何定义一个接口呢？<br>  格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1  public interface 接口名称&#123;       &#x2F;&#x2F;interface为接口的关键字</span><br><span class="line">2   &#x2F;&#x2F;接口内容</span><br><span class="line">3  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>备注:换成了关键字interface之后，编译生成的字节码文件仍然是: . java –&gt; .class。</p>
+<h3 id="如果是Java-7-那么接口中可以包含的内容有"><a href="#如果是Java-7-那么接口中可以包含的内容有" class="headerlink" title="如果是Java 7,那么接口中可以包含的内容有:"></a><strong>如果是Java 7,那么接口中可以包含的内容有:</strong></h3><p>1.常量<br>2.抽象方法</p>
+<h3 id="如果是Java-8-还可以额外包含有"><a href="#如果是Java-8-还可以额外包含有" class="headerlink" title="如果是Java 8,还可以额外包含有:"></a><strong>如果是Java 8,还可以额外包含有:</strong></h3><ol start="3">
+<li>默认方法</li>
+<li>静态方法<h3 id="如果是Java-9-还可以额外包含有"><a href="#如果是Java-9-还可以额外包含有" class="headerlink" title="如果是Java 9,还可以额外包含有:"></a><strong>如果是Java 9,还可以额外包含有:</strong></h3></li>
+<li>私有方法</li>
+</ol>
+<hr>
+<h1 id="接口的使用"><a href="#接口的使用" class="headerlink" title="接口的使用"></a>接口的使用</h1><blockquote>
+<p>在任何版本的Java中，接口都能定义抽象方法。<br>  格式:<br>  <strong>public abstract 返回值类型方法名称(参数列表);</strong><br>  注意事项:<br>  <strong>*1.接口当中的抽象方法，修饰符必须是两个固定的关键字: public abstract<br>     2.这两个关键字修饰符，可以选择性地省略。 *</strong></p>
+</blockquote>
+<p>例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1 public interface MyInterfaceAbstract&#123;</span><br><span class="line">2   	public abstract void methodAbs1();  &#x2F;&#x2F;以下语法均成立</span><br><span class="line">3	    abstract void methodAbs1();         &#x2F;&#x2F;注意，抽象方法不存在方法体，直接加分号</span><br><span class="line">4	    public  void methodAbs1();</span><br><span class="line">5	    void methodAbs1();</span><br><span class="line">6   &#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="接口使用步骤"><a href="#接口使用步骤" class="headerlink" title="接口使用步骤"></a>接口使用步骤</h2><p> 1.接口不能直接使用，必须有一一个“实现类”来“实现”该接口。<br>格式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 public class 实现类名称 implements 接口名称&#123;</span><br><span class="line">2	&#x2F;&#x2F;</span><br><span class="line">3 &#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>接口的实现类必须覆盖重写(实现)接口中所有的抽象方法。<br>实现:去掉<strong>abstract</strong>关键字，加上方法体大括号。</li>
+<li>创建实现类的对象，进行使用。<br>例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1 public class MyInterface implements MyInterfaceAbstract&#123;</span><br><span class="line">2         @Override</span><br><span class="line">3        public void methodAbs1() &#123;                        &#x2F;&#x2F;将抽象方法覆盖重写</span><br><span class="line">4        System.out.println(&quot;调用了第一个抽象方法！&quot;);</span><br><span class="line">5    &#125;  	</span><br><span class="line">6 &#125;</span><br></pre></td></tr></table></figure>
+//创建main类来具体实现<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1 public class MainInterface&#123;</span><br><span class="line">2        public static void main(String[] args)&#123;</span><br><span class="line">3	     MyInterface inf &#x3D; new MyInterface();     &#x2F;&#x2F;这里一定创建的是实现类，不能创建接口类</span><br><span class="line">4        inf.methodAbs1();                        &#x2F;&#x2F;调用方法</span><br><span class="line">5  &#125;	</span><br><span class="line">6 &#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<h2 id="接口的默认方法"><a href="#接口的默认方法" class="headerlink" title="接口的默认方法"></a>接口的默认方法</h2><p> 从Java8开始，接口中允许默认方法<br> 格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 public default 返回值类型 方法名称(参数列表)  &#123;</span><br><span class="line">2	&#x2F;&#x2F;方法体</span><br><span class="line">3 &#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1 public interface MyInterfaceDefault &#123;</span><br><span class="line">2	public abstract void methodAbs2();  &#x2F;&#x2F;抽象方法</span><br><span class="line">3	public default void methodAbs3();   &#x2F;&#x2F; 默认方法(不影响抽象方法且不需要重写)</span><br><span class="line">4    &#123;</span><br><span class="line">5        System.out.println(&quot;这是新添加的默认方法！&quot;);</span><br><span class="line">6    &#125;</span><br><span class="line">7 &#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="接口的静态方法"><a href="#接口的静态方法" class="headerlink" title="接口的静态方法"></a>接口的静态方法</h2><p> 从Java 8开始，接口当中允许定义静态方法。<br> 格式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 public static 返回值类型方法名称(参数列表) &#123;</span><br><span class="line">2 方法体</span><br><span class="line">3 &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1 public interface MyInterfaceStatic&#123;</span><br><span class="line">2        public static void MyStatic()&#123;</span><br><span class="line">3        System.out.println(&quot;调用了静态方法&quot;);</span><br><span class="line">4  &#125;</span><br><span class="line">5 &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1 public class Demo01&#123;</span><br><span class="line">2	 public static void main(String[] args)&#123;</span><br><span class="line">3	 	MyInterfaceStatic.MyStatic();&#x2F;&#x2F;**这里注意的是，不能用创建的方法来调用，而应该直接用接口名来调用静态方法**</span><br><span class="line">4	 &#125;</span><br><span class="line">5 &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<blockquote>
+<p>提示:就是将abstract或者defaul t换成static即可，带上方法体。</p>
+</blockquote>
+<p> 注意事项:不能通过接口实现类的对象来调用接口当中的静态方法。<br> 正确用法:通过接口名称，直接调用其中的静态方法。<br> 格式:<br> 接口名称.静态方法名(参数);</p>
+<hr>
+<h2 id="接口私有方法"><a href="#接口私有方法" class="headerlink" title="接口私有方法"></a>接口私有方法</h2><p> 问题描述:<br> 我们需要抽取一个共有方法，用来解决两个默认方法之间重复代码的问题。<br> 但是这个共有方法不应该让实现类使用，应该是私有化的。<br> 解决方案:<br> 从Java 9开始，接口当中允许定义私有方法。<br> 普通私有方法，解诀多个默认方法之间重复代码问题<br> 格式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 private返回值类型方法名称(参数列表) &#123;</span><br><span class="line">2 方法体</span><br><span class="line">3 &#125;</span><br></pre></td></tr></table></figure>
+
+<p> 静态私有方法，解决多个静态方法之间重复代码问题<br> 格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 private static 返回值类型方法名称(参数列表) &#123;</span><br><span class="line">2 方法体</span><br><span class="line">3 &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用</strong>：<br><strong><em>private</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1 public interface MyInterfacePrivateA &#123;</span><br><span class="line">2     public default void methodDefault1() &#123;</span><br><span class="line">3       System.out.println(&quot;默认方法1&quot;);</span><br><span class="line">4          methodCommon();             &#x2F;&#x2F;调用了一个重复方法</span><br><span class="line">5 &#125;</span><br><span class="line">6     public default void methodDefault2() &#123;</span><br><span class="line">7          System.out.println(&quot;默认方法2&quot;);</span><br><span class="line">8           methodCommon() ;		   &#x2F;&#x2F;调用了一个重复方法</span><br><span class="line">9 &#125;</span><br><span class="line">10    private void methodCommon() &#123;   &#x2F;&#x2F;这里换成了private，外部就不可调用，仅限类内部访问了</span><br><span class="line">11         System.out.println(&quot;AAA&quot;);</span><br><span class="line">12         System.out.println(&quot;BBB&quot;);</span><br><span class="line">13         System.out.println(&quot;CCC&quot;);</span><br><span class="line">14 &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>static</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1 public interface MyInterfacePrivateB &#123;</span><br><span class="line">2      public static void methodDefault1() &#123;</span><br><span class="line">3      System. out . println(&quot;静态方法1&quot;);</span><br><span class="line">4      methodStaticCommon( ) ;</span><br><span class="line">5 &#125;</span><br><span class="line">6 public static void methodDefault2() &#123;</span><br><span class="line">7      System.out.println(&quot;静态方法2&quot;);</span><br><span class="line">8      methodStaticCommon() ;</span><br><span class="line">9 &#125;</span><br><span class="line">10 private static void methodStaticCommon() &#123;</span><br><span class="line">11     System.out.println(&quot;AAA&quot;);</span><br><span class="line">12     System.out.println(&quot;BBB&quot;);</span><br><span class="line">13     System.out.println(&quot;CCC&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="接口常量"><a href="#接口常量" class="headerlink" title="接口常量"></a>接口常量</h2><p>  接口当中也可以定义“成员变量”，但是必须使用public static final三个关键字进行修饰。<br>  从效果上看，这其实就是接口的[常量]。<br>  格式:</p>
+<pre><code>1 public static final //数据类型常量名称=数据值;
+2 //使用
+3 public static final int NUM= 10;//接口中的变量，因为final效果，不能修改，得用大写字母表示
+4 //调用该常量
+5 System.out.println(&quot;接口名.NUM&quot;)；</code></pre><p>  备注:<br>  一旦使用final关键字进行修饰，说明不可改变。<br>  注意事项:<br>  1.接口当中的常量，可以省略public static final, 注意:不写也照样是这样。<br>  2.接口当中的常量，必须进行赋值;不能不赋值。<br>  3.接口中常量的名称，使用完全大写的字母，用下划线进行分隔。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p> 在Java 9+版本中，接口的内容可以有:<br>1.<strong>成员变量其实是常量，格式:</strong><br>public static final 数据类型常量名称=数据值;<br>注意:<br>常量必须进行赋值，而且一旦赋值不能改变。<br>常量名称完全大写，用下划线进行分隔。</p>
+<p>2.<strong>接口中最重要的就是抽象方法，格式:</strong><br> public abstract  返回值类型方法名称(参数列表);<br>注意:实现类必须覆盖重写接口所有的抽象方法，除非实现类是抽象类。</p>
+<p>3.<strong>从Java 8开始，接口里允许定义默认方法，格式:</strong><br>[public] default 返回值类型方法名称(参数列表) {方法体}<br>注意:默认方法也可以被覆盖重写</p>
+<p>4.<strong>从Java 8开始，接口里允许定义静态方法，格式:</strong><br>[public] static 返回值类型方法名称(参数列表) {方法体}<br>注意:应该通过接口名称进行调用，不能通过实现类对象调用接口静态方法</p>
+<p>5.<strong>从Java 9开始，接口里允许定义私有很乏，格式:</strong><br>普通私有方法: private 返回值类型方法名称(参数列表) {方法体}<br>静态私有方法: private static 返回值类型方法名称(参数列表) {方法体}<br>注意: private的方法只有接口自己才能调用，不能被实现类或别人使用。</p>
+<hr>
+<p><strong>其他使用方法待续。。。。。。</strong></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="ture">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
